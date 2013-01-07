@@ -1,4 +1,4 @@
-A simple rails project for beRecruited interviews.
+Welcome! This is a simple rails project for potential beRecruited developers to complete.
 
 Summary:
 Users of an application participate in contests put on by their favorite teams to accrue points.  Top 5 users each week are given prizes. Given an external API (http://br-interview-api.heroku.com) that returns data of these users and teams, display leaderboards for specific teams of the top 5 users who have that team as a favorite.
