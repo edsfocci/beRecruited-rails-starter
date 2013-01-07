@@ -2,7 +2,7 @@ Welcome! This is a simple rails project for potential beRecruited developers to 
 
 ### Summary:
 
-Given an API, display a leaderboard with *user names*, *current week points*, and *last week points*.  Allow toggling between different team leaderboards.
+Given an API, display a leaderboard with **user names**, **current week points**, and **last week points**.  Allow toggling between different team leaderboards.
 
 ### What is given:
 - An application where users participate in contests put on by their favorite teams to accrue points.
