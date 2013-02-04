@@ -9,7 +9,7 @@ Given an API, display a leaderboard with **usernames**, **current week points**,
 - An external API (http://br-interview-api.heroku.com) that returns data of these users, teams, and leaderboards.
 
 ### What you'll do:
-- Clone this repository and modify it so that it displays a leaderboard of users who have gained points when participating in their favorite teams' contests. There should be one leaderboard per team.
+- Fork this repository, then modify it so that it displays a leaderboard of users who have gained points when participating in their favorite teams' contests. There should be one leaderboard per team.
 - Host your code on a public Github repository and/or free Heroku.com instance and send the link(s) to [joe@berecruited.com](mailto:joe@berecruited.com).
 
 _Note: You are encouraged to use gems and other libraries that may help you complete the project. Ruby on Rails framework is preferred, as this is what the majority of our current projects at beRecruited will involve.  Other languages and frameworks are acceptable, but please note why you chose another framework._
