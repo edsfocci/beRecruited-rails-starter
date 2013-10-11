@@ -1,5 +1,18 @@
+ <script type="application/javascript" src="./leaderboard.js"></script>
+
 <div id="main">
-  <h1>&lt; Insert Team Here &gt; Leaderboard</h1>
+  <h1><span id='team_name'>&lt; Insert Team Here &gt;</span> Leaderboard</h1>
+
+  <div id='teams_dropdown'>
+  </div>
+
+<!--   <form action="" method="GET"> -->
+<!--     <select name="mydropdown"> -->
+<!--       <option value="Milk">Fresh Milk</option> -->
+<!--       <option value="Cheese">Old Cheese</option> -->
+<!--       <option value="Bread">Hot Bread</option> -->
+<!--     </select> -->
+<!--   </form> -->
 
   <%# TODO: Remove this placeholder text! %>
   <p>Welcome to the beRecruited challenge!</p>
@@ -7,6 +20,11 @@
     
   <%# TODO: Populate the rows in this table with data from http://br-interview-api.heroku.com %>
   <table>
+    <tr>
+      <th>Name</th>
+      <th>This Week's Points</th>
+      <th>Last Week's Points</th>
+    </tr>
     <tr>
       <th>Name</th>
       <th>This Week's Points</th>

@@ -4,13 +4,13 @@ class Favorite < ActiveRecord::Base
   # TODO: Define the relationship to users and/or teams
   belongs_to(
     :user,
-    foreign_key: :user_api_id
+    foreign_key: :user_api_id,
     primary_key: :user_api_id
   )
 
   belongs_to(
     :team,
-    foreign_key: :team_api_id
+    foreign_key: :team_api_id,
     primary_key: :team_api_id
   )
 
@@ -46,9 +46,9 @@ class Favorite < ActiveRecord::Base
 
     top, middle, bottom = 0, array.size / 2, array.size - 1
 
-    until user_hash['current_amount'] < array.[middle - 1]['current_amount'] &&
-              user_hash['current_amount'] > array.[middle]['current_amount']
-      if user_hash['current_amount'] > array.[middle - 1]['current_amount']
+    until user_hash['current_amount'] < array[middle - 1]['current_amount'] &&
+              user_hash['current_amount'] > array[middle]['current_amount']
+      if user_hash['current_amount'] > array[middle - 1]['current_amount']
         bottom = middle
       else
         top = middle
