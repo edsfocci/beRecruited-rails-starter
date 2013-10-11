@@ -4,8 +4,8 @@ class CreateTeams < ActiveRecord::Migration
       t.integer  :team_api_id
       t.string   :location
       t.string   :nickname
-      t.datetime :created_at
-      t.datetime :updated_at
+
+      t.timestamps
     end
 
     add_index :teams, :team_api_id

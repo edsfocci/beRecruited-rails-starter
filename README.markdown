@@ -1,4 +1,4 @@
-Note: Uses  Rails 3.0.9 & Ruby 1.9.2 head for compatibility as per Gemfile specs
+Note: Uses  Rails 3.0.9 & Ruby 1.9.2-p320 for compatibility as per Gemfile specs
 
 Welcome! This is a simple rails project for potential beRecruited developers to complete.
 

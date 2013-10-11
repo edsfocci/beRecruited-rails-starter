@@ -4,8 +4,8 @@ class CreateUsers < ActiveRecord::Migration
       t.integer  :user_api_id
       t.string   :first_name
       t.string   :last_name
-      t.datetime :created_at
-      t.datetime :updated_at
+
+      t.timestamps
     end
 
     add_index :users, :user_api_id

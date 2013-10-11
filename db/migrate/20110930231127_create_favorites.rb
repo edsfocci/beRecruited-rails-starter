@@ -5,8 +5,8 @@ class CreateFavorites < ActiveRecord::Migration
       t.integer  :team_api_id
       t.integer  :current_amount
       t.integer  :last_week_amount
-      t.datetime :created_at
-      t.datetime :updated_at
+
+      t.timestamps
     end
 
     add_index :favorites, :team_api_id
