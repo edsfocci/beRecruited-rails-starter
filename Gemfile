@@ -10,6 +10,8 @@ gem 'sqlite3'
 gem 'json'
 gem 'rest-client'
 
+gem "jquery-rails"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
