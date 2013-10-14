@@ -3,6 +3,7 @@ BeRecruitedInterview::Application.routes.draw do
   # first created -> highest priority.
 
   resources :leaderboard
+  root :to => "root#root"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
