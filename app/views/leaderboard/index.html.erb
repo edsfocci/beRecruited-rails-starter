@@ -34,6 +34,13 @@
   </table>
 </div>
 
-<script type="application/json"></script>
+<script type="application/json" id='bootstrapped_teams_json'>
+  <%= Team.all.to_json.html_safe %>
+</script>
 
-<script type="text/javascript" src="/javascripts/application.js"></script>
+<script type="application/javascript">
+  $(function () {
+    var teamsData = JSON.parse($('#bootstrapped_teams_json').html());
+    window.Leaderboard.initialize($('#top_five'), teamsData);
+  });
+</script>
