@@ -40,7 +40,25 @@
 
 <script type="application/javascript">
   $(function () {
-    var teamsData = JSON.parse($('#bootstrapped_teams_json').html());
+    var teamsData_unclean = JSON.parse($('#bootstrapped_teams_json').html());
+
+    var teamsData = teamsData_unclean.map(function(teamData) {
+      return teamData['team'];
+    });
+
     window.Leaderboard.initialize($('#top_five'), teamsData);
   });
+</script>
+
+<%#= Templates below: %>
+
+<script type="text/html" id="team_dropdown_template">
+  <select name="mydropdown">
+    <option>---Choose---</option>
+    <%% teams.each(function(team) { %>
+      <option value="<%%= team.get('team_api_id') %>">
+        <%%= team.get('nickname') %>
+      </option>
+    <%% }); %>
+  </select>
 </script>

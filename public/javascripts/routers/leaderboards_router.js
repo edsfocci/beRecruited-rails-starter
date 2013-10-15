@@ -5,22 +5,22 @@ Leaderboard.Routers.Leaderboards = Backbone.Router.extend({
   },
 
   routes: {
-    'leaderboard': 'index',
-    'leaderboard/:id': 'show'
+    '': 'index',
+    ':id': 'show'
   },
 
   index: function () {
     var leaderboardsIndex = new Leaderboard.Views.LeaderboardsIndex({
       collection: this.teams
     });
-    this.$('#teams_dropdown').html(leaderboardsIndex.render().$el);
+    $('#teams_dropdown').html(leaderboardsIndex.render().$el);
   },
 
   show: function () {
-    var leaderboardsNew = new Leaderboard.Views.LeaderboardsShow({
-      collection: this.products
+    var leaderboardsShow = new Leaderboard.Views.LeaderboardsShow({
+      collection: this.users
     });
 
-    this.$rootEl.html(productsNew.render().$el);
+    this.$rootEl.html(leaderboardsShow.render().$el);
   }
 });
