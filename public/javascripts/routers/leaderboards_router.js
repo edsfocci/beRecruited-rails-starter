@@ -16,9 +16,10 @@ Leaderboard.Routers.Leaderboards = Backbone.Router.extend({
     $('#teams_dropdown').html(leaderboardsIndex.render().$el);
   },
 
-  show: function () {
+  show: function (id) {
+    var team = this.teams.get(id);
     var leaderboardsShow = new Leaderboard.Views.LeaderboardsShow({
-      collection: this.users
+      model: team
     });
 
     this.$rootEl.html(leaderboardsShow.render().$el);
