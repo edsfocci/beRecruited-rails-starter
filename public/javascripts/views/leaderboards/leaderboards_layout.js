@@ -1,6 +1,10 @@
-Leaderboard.Views.LeaderboardsIndex = Backbone.View.extend({
+Leaderboard.Views.LeaderboardsLayout = Backbone.View.extend({
+  // TODO: Find out why this isn't working
+  // template: _.template($('#team-dropdown-template').html()),
+
   events: {
-    "change select": "redirect"
+    // "change select": "redirect"
+    "click option": "redirect"
   },
 
   render: function () {
@@ -11,8 +15,7 @@ Leaderboard.Views.LeaderboardsIndex = Backbone.View.extend({
   },
 
   redirect: function (event) {
-    var id = 
-          event.currentTarget.options[event.currentTarget.selectedIndex].value;
+    var id = event.currentTarget.value;
     if(id !== '') {
       Backbone.history.navigate("#/" + id);
     }

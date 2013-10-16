@@ -1,38 +1,32 @@
 Leaderboard.Views.LeaderboardsShow = Backbone.View.extend({
-  events: {
-    "change select": "redirect"
-  },
-
   render: function () {
     var that = this;
-    $('#team_name').html(that.model.escape('nickname') + ' ');
-    $('title').html(that.model.escape('nickname') + ' Leaderboard');
+    $('#team_name').html(this.model.escape('nickname') + ' ');
+    $('title').html(this.model.escape('nickname') + ' Leaderboard');
 
     // TODO: Must change according to specs in leaderboard_controller.rb
-    // $.ajax(
-    //   url: '/leaderboard/' + id,
-    //   type: 'GET',
-    //   success: function (usersData_unclean) {
-    //     var usersData = usersData_unclean.map(function(userData) {
-    //       userData['user'];
-    //     });
+    $.ajax({
+      url: '/leaderboard.json',
+      type: 'GET',
+      data: { 'id': this.model.id },
+      success: function (combinedData) {
+        var usersData = combinedData['users'].map(function(userData) {
+          return userData['user'];
+        });
 
-    //     this.collection: new Leaderboard.Collections.Users({
-    //       usersData
-    //     });
+        var favsData = combinedData['favorites'].map(function(favData) {
+          return favData['favorite'];
+        });
 
-    //     this.$el.html(_.template($('#top_five_template').html())({
-    //       users: this.collection
-    //     }));
-    //   }
-    // );
+        that.users = new Leaderboard.Collections.Users(usersData);
+        that.favorites = new Leaderboard.Collections.Favorites(favsData);
+
+        that.$el.html(_.template($('#top_five_template').html())({
+          users: that.users,
+          favorites: that.favorites
+        }));
+      }
+    });
     return this;
-  },
-
-  redirect: function (event) {
-    var id = 
-          event.currentTarget.options[event.currentTarget.selectedIndex].value;
-    //window.location.hash = id;
-    Backbone.history.navigate("#/" + id);
   }
 });

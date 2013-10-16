@@ -10,12 +10,7 @@
     
   <%# TODO: Populate the rows in this table with data from http://br-interview-api.heroku.com %>
   <table>
-    <tr>
-      <th>Name</th>
-      <th>This Week's Points</th>
-      <th>Last Week's Points</th>
-    </tr>
-      <div id='top_five'></div>
+    <div id='top_five'></div>
   </table>
 </div>
 
@@ -49,11 +44,19 @@
 </script>
 
 <script type="text/html" id="top_five_template">
+  <tr>
+    <th>Name</th>
+    <th>This Week's Points</th>
+    <th>Last Week's Points</th>
+  </tr>
   <%% users.each(function(user) { %>
+    <%% var fave = favorites.findWhere({user_api_id: user.get('user_api_id')}) %>
     <tr>
-      <th><%%= user.escape('first_name') %> <%%= user.escape('last_name') %></th>
-      <th>This Week's Points</th>
-      <th>Last Week's Points</th>
+      <th>
+        <%%= user.escape('first_name') %> <%%= user.escape('last_name') %>
+      </th>
+      <th><%%= fave.escape('current_amount') %></th>
+      <th><%%= fave.escape('last_week_amount') %></th>
     </tr>
   <%% }); %>
 </script>

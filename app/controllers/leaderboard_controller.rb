@@ -4,10 +4,22 @@ class LeaderboardController < ApplicationController
       populate_this_db_with_berecruited_db
     end
 
-    # Log counts in server log
-    p 'Teams:     ' + Team.all.size.to_s
-    p 'Users:     ' + User.all.size.to_s
-    p 'Favorites: ' + Favorite.all.size.to_s
+    # Log counts in server log (debug)
+    # p 'Teams:     ' + Team.all.size.to_s
+    # p 'Users:     ' + User.all.size.to_s
+    # p 'Favorites: ' + Favorite.all.size.to_s
+
+
+
+    respond_to do |format|
+      format.html { render :index }
+      format.json {
+        @team = Team.find(params[:id])
+        @favorites = @team.incoming_favorites.includes(:user)
+        @leaders = @favorites.map { |favorite| favorite.user }
+        render :json => { users: @leaders, favorites: @favorites }
+      }
+    end
 
     # TODO: Fetch team based on dropdown selection 
     # @team = ?

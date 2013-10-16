@@ -2,7 +2,7 @@ BeRecruitedInterview::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :leaderboard, only: [:index, :show]
+  resources :leaderboard, only: [:index]
   root :to => "root#root"
 
   # Sample of regular route:
