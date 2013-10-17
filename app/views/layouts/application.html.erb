@@ -2,6 +2,10 @@
 <html>
 <head>
   <title>Leaderboard</title>
+  <%#
+  TODO: Create individual browser icons for each team (cosmetic)
+  <link rel="shortcut icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
+  %>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag 'jquery.js' %>
   <%= javascript_include_tag 'json2.js' %>
@@ -10,10 +14,10 @@
   <%= javascript_include_tag 'application.js' %>
   <%= javascript_include_tag './models/team.js' %>
   <%= javascript_include_tag './collections/teams.js' %>
-  <%= javascript_include_tag './models/user.js' %>
-  <%= javascript_include_tag './collections/users.js' %>
-  <%= javascript_include_tag './models/favorite.js' %>
-  <%= javascript_include_tag './collections/favorites.js' %>
+  <%#= javascript_include_tag './models/user.js' %>
+  <%#= javascript_include_tag './collections/users.js' %>
+  <%= javascript_include_tag './models/leader.js' %>
+  <%= javascript_include_tag './collections/leaders.js' %>
   <%= javascript_include_tag './routers/leaderboards_router.js' %>
   <%= javascript_include_tag './views/leaderboards/leaderboards_layout.js' %>
   <%= javascript_include_tag './views/leaderboards/leaderboards_show.js' %>

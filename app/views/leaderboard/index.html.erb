@@ -4,14 +4,42 @@
   <div id='teams_dropdown'>
   </div>
 
-  <%# TODO: Remove this placeholder text! %>
+  <%# DONE: Remove this placeholder text! %>
+  <%#
   <p>Welcome to the beRecruited challenge!</p>
   <p>Populate this leaderboard from the <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> API here: <a href="http://br-interview-api.heroku.com">http://br-interview-api.heroku.com</a></p>
-    
-  <%# TODO: Populate the rows in this table with data from http://br-interview-api.heroku.com %>
-  <table>
-    <div id='top_five'></div>
-  </table>
+  %>
+
+  <%# DONE: Populate the rows in this table with data from http://br-interview-api.heroku.com %>
+  <p>
+    Displays top 5 users for each team.
+  </p>
+  <p>
+    Choose a team from the dropdown menu above to see that team's top 5.
+  </p>
+  <p>
+    View my code for this project here:
+    <a href='https://github.com/edsfocci/beRecruited-rails-starter'>
+      Github
+    </a>
+  </p>
+
+  <span class='top_five'>
+    <h2>Top Five</h2>
+    <table>
+      <span id='top_five'></span>
+    </table>
+  </span>
+
+<br>
+
+  
+  <span class='all_users'>
+    <h2>All Users, in Current Points Order</h2>
+    <table>
+      <span id='all_users'></span>
+    </table>
+  </span>
 </div>
 
 <script type="application/json" id='bootstrapped_teams_json'>
@@ -30,7 +58,7 @@
   });
 </script>
 
-<%#= Templates below: %>
+<%# Templates below: %>
 
 <script type="text/html" id="team_dropdown_template">
   <select>
@@ -47,16 +75,31 @@
   <tr>
     <th>Name</th>
     <th>This Week's Points</th>
+    <th></th>
     <th>Last Week's Points</th>
   </tr>
-  <%% users.each(function(user) { %>
-    <%% var fave = favorites.findWhere({user_api_id: user.get('user_api_id')}) %>
+  <%% leaders.each(function(leader) { %>
     <tr>
-      <th>
-        <%%= user.escape('first_name') %> <%%= user.escape('last_name') %>
-      </th>
-      <th><%%= fave.escape('current_amount') %></th>
-      <th><%%= fave.escape('last_week_amount') %></th>
+      <th><%%= leader.escape('name') %></th>
+      <th><%%= leader.escape('current_amount') %></th>
+      <th></th>
+      <th><%%= leader.escape('last_week_amount') %></th>
     </tr>
   <%% }); %>
+</script>
+
+<%# Pay no attention to what's below %>
+<script type="text/html" id="all_users_template">
+  // <tr>
+  //   <th>Name</th>
+  //   <th>This Week's Points</th>
+  //   <th>Last Week's Points</th>
+  // </tr>
+  // <%% users.each(function(user) { %>
+  //   <tr>
+  //     <th><%%= user.escape('name') %></th>
+  //     <th><%%= user.escape('current_amount') %></th>
+  //     <th><%%= user.escape('last_week_amount') %></th>
+  //   </tr>
+  // <%% }); %>
 </script>

@@ -1,7 +1,7 @@
 class Team < ActiveRecord::Base
   attr_accessible :team_api_id, :location, :nickname
 
-  # TODO: Define the relationship to users and/or favorites
+  # DONE: Define the relationship to users and/or favorites
   has_many(
     :incoming_favorites,
     class_name: 'Favorite',

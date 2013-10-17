@@ -9,23 +9,22 @@ class LeaderboardController < ApplicationController
     # p 'Users:     ' + User.all.size.to_s
     # p 'Favorites: ' + Favorite.all.size.to_s
 
-
-
     respond_to do |format|
       format.html { render :index }
       format.json {
+        # DONE: Fetch team based on dropdown selection 
         @team = Team.find(params[:id])
-        @favorites = @team.incoming_favorites.includes(:user)
-        @leaders = @favorites.map { |favorite| favorite.user }
-        render :json => { users: @leaders, favorites: @favorites }
+
+        # Below kept to check my work
+        # @users = Favorite.top(@team)
+        # @leaders = @users[0...5]
+        # render :json => { users: @users, leaders: @leaders }
+
+        # DONE: Fetch top 5 leaders for this team
+        @leaders = Favorite.top(@team)
+        render :json => { leaders: @leaders }
       }
     end
-
-    # TODO: Fetch team based on dropdown selection 
-    # @team = ?
-
-    # TODO: Fetch top 5 leaders for this team
-    # @leaders = ?
   end
 
   API_URL_HASH = {    'team' => "http://br-interview-api.heroku.com/teams",
