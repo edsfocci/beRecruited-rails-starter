@@ -19,7 +19,6 @@ Leaderboard.Views.LeaderboardsShow = Backbone.View.extend({
           leaders: that.leaders
         }));
 
-        $('.all_users').empty();
         // $('#all_users').html(_.template($('#all_users_template').html())({
         //   users: that.users
         // }));
