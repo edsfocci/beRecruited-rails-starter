@@ -33,7 +33,6 @@ class Favorite < ActiveRecord::Base
     favs = team.incoming_favorites.includes(:user)
 
     users_points_sorted = []
-    counter = 10000001
     favs.each do |fav|
       user = fav.user
 

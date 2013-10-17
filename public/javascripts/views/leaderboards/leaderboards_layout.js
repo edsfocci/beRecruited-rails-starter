@@ -11,6 +11,8 @@ Leaderboard.Views.LeaderboardsLayout = Backbone.View.extend({
     this.$el.html(_.template($('#team_dropdown_template').html())({
       teams: this.collection
     }));
+
+    $('.all_users').empty();
     return this;
   },
 
