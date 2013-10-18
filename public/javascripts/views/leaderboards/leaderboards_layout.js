@@ -3,8 +3,8 @@ Leaderboard.Views.LeaderboardsLayout = Backbone.View.extend({
   // template: _.template($('#team-dropdown-template').html()),
 
   events: {
-    // "change select": "redirect"
-    "click option": "redirect"
+    "change select": "redirect"
+    // "click option": "redirect"
   },
 
   render: function () {
