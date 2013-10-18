@@ -79,19 +79,6 @@ class Favorite < ActiveRecord::Base
       middle = (array[top..bottom].size / 2) + top
     end
 
-    # Edge case: Users with the same current_amount:
-      # put in order of last_week_amount
-      # Note: designed for this coding challenge only (only 1 with same amount)
-    # if user_hash[:current_amount] == array[middle - 1][:current_amount]
-    #   if user_hash[:last_week_amount] > array[middle - 1][:last_week_amount]
-    #     middle -= 1
-    #   end
-    # elsif user_hash[:current_amount] == array[middle][:current_amount]
-    #   if user_hash[:last_week_amount] < array[middle][:last_week_amount]
-    #     middle += 1
-    #   end
-    # end
-
     if self.needs_to_swap?(user_hash, array[middle - 1], :up)
       middle -= 1
     elsif self.needs_to_swap?(user_hash, array[middle], :down)
@@ -100,7 +87,6 @@ class Favorite < ActiveRecord::Base
 
     dup_array.insert(middle, user_hash)
   end
-
 
   # Edge case: Users with the same current_amount:
     # put in order of last_week_amount
